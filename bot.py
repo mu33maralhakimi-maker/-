@@ -107,11 +107,3 @@ async def callback_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     elif data == "cancel":
         await query.edit_message_text("🔙 تم إلغاء التصفية، الحساب مستمر.")
 
-if __name__ == '__main__':
-    # ملاحظة: تأكد أن اسم المتغير في Render هو BOT_TOKEN
-    token = os.environ.get('BOT_TOKEN')
-    app = ApplicationBuilder().token(token).build()
-    app.add_handler(MessageHandler(filters.TEXT | filters.PHOTO, handle_msg))
-    app.add_handler(CallbackQueryHandler(callback_handler))
-    print("البوت يعمل الآن...")
-    app.run_polling()
